@@ -195,3 +195,8 @@ Por fim, se você quiser habilitar o reCAPTCHA v3 no seu formulário de contato
 para evitar spam, acesse o endereço https://www.google.com/recaptcha/ e no
 console administrativo crie as chaves. Depois insira essas chaves na página de
 `Configurações` da sua aplicação.
+
+## Licença
+
+A Minha Academia é um programa de código aberto licenciado sob a 
+[GPL v3.0 ou posterior](https://github.com/lcmaquino/minhaacademia/blob/main/LICENSE).
