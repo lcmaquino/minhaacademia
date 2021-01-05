@@ -7,6 +7,7 @@ use App\Lesson;
 use App\Activity;
 use App\LessonProgress;
 use App\ActivityProgress;
+use App\CPFFormatter;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -22,7 +23,7 @@ class Certify extends Model
     ];
 
     /**
-     * Show CPF with mask.
+     * Show CPF like "000.000.000-00".
      *
      * @return string
      */
@@ -30,6 +31,17 @@ class Certify extends Model
     {
         $cpf = new CPFFormatter($this->cpf);
         return $cpf->show();
+    }
+
+    /**
+     * Show CPF like "***-000.000-**".
+     *
+     * @return string
+     */
+    public function cpfMask()
+    {
+        $cpf = new CPFFormatter($this->cpf);
+        return $cpf->mask();
     }
 
     /**

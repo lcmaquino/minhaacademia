@@ -14,7 +14,7 @@
                 <div style="padding: 4px 8px; margin: 2rem auto; max-width: 320px; border: 1px solid #e0e0e0;" class="text-left">
                     <div class="text-center"><h4>Certificado válido.</h4></div>
                     <p><strong>Nome:</strong> {{ $certify->name }}</p>
-                    <p><strong>CPF:</strong> {{ $certify->cpfShow() }}</p>
+                    <p><strong>CPF:</strong> {{ $certify->cpfMask() }}</p>
                     <p><strong>Curso:</strong> {{ $certify->title }}</p>
                     <p><strong>Carga horária:</strong> {{ $certify->duration }}</p>
                     <p><strong>Data de conclusão:</strong> {{ $certify->created_at->format('d/m/Y') }}</p>
