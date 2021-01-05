@@ -1,0 +1,562 @@
+/* Global*/
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.2rem;
+  max-height: 4.4rem;
+  background-color: #f9f9f9;
+}
+
+p {
+  margin-bottom: 1.0rem;
+}
+
+p.label{
+  margin-bottom: .5rem;
+  font-weight: 600;
+}
+
+a, a:hover, a:visited, a:link{
+  color: #333;
+}
+
+a.login {
+  text-decoration: none;
+}
+
+ol.upper-latin {
+  list-style-type: upper-latin;
+}
+
+iframe {
+  display: block;
+  border: 0px;
+  height: 100%;
+}
+
+.thumbnail {
+  max-height: 32px;
+  vertical-align: middle;
+}
+
+.copyleft {
+  height: 12px;
+  margin-right: 4px;
+}
+
+.container.first {
+  padding: 8px 32px 0 32px;
+}
+
+.container.last {
+  border-top: 1px solid #e0e0e0;
+}
+
+.columns.left {
+  padding: 1% 2% 1% 4%;
+  min-height: 700px;
+}
+
+.columns.right {
+  padding: 1%;
+}
+
+.columns.contact {
+  padding: 1% 4%;
+  border: 1px solid #e0e0e0;
+  background-color: #fff;
+}
+
+.main .columns{
+  float: left;
+}
+
+.container {
+  padding: 16px 32px;
+  width: 100%;
+  max-width: 1920px;
+}
+
+.container.main {
+  padding: 0%;
+}
+.container.bg-white {
+  background-color: #fff;
+}
+
+.section.alert {
+  padding: 0px;
+  text-align: center;
+}
+
+.hearding {
+  text-transform: uppercase;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+a.is-active {
+  color: #333;
+}
+
+img.center {
+  display: block;
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+.fa {
+  margin-left: 1.0rem;
+  margin-right: 0.5rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.fa-remove {
+  margin-left: 1.5rem;
+}
+
+.fa-check-circle-o.gray{
+  color: #333;
+}
+
+.fa-question-circle {
+  color: #333;
+}
+
+.fa.gray {
+  color: #606060;
+}
+
+.fa.dark-gray {
+  color: #333;
+}
+
+.size-g {
+  font-size: 3rem;
+}
+
+.size-m {
+  font-size: 2rem;
+}
+
+textarea {
+  min-height: 360px;
+}
+
+.textarea-small {
+  min-height: 180px;
+}
+
+.module-info, .lesson-info, 
+.activity-info, .question-info, .pag-info, .information {
+  color: #606060;
+}
+
+.content {
+  max-height: 480px;
+  border: 1px #e0e0e0 solid;
+  padding: 4%;
+}
+
+.content.header {
+  max-height: 60px;
+  border: none;
+  padding: 4%;
+  margin-bottom: 1rem;
+}
+
+.content.header > h5 > form {
+  margin-bottom: 0;
+}
+
+.content.nav {
+  max-height: 380px;
+  padding: 2% 4%;
+  border: none;
+  overflow-y:auto;
+}
+
+.signature{
+  width: 200px;
+  margin: 20px 0;
+}
+
+.users-table, .certifies-table, .settings-table {
+  width: 80%;
+  margin: 0 auto 0.5rem auto;
+}
+
+.users-table > form,  .certifies-table > form,
+.settings-table > form {
+  display: inline;
+}
+
+.users-table.data,  .certifies-table.data, 
+.settings-table.data {
+  max-height: 360px;
+  overflow-y:auto;
+}
+
+.users-table.data table, .certifies-table table, 
+.settings-table table {
+  margin: 1.2rem auto;
+  width: 100%;
+}
+
+.users-table.data th,  .certifies-table.data th, 
+.settings-table.data th {
+  position: sticky; 
+  background-color: #f9f9f9;
+  top: 0;
+}
+
+.users-table.data td.user{
+  width: 80%;
+}
+
+.users-table.data td.user-remove{
+  width: 20%;
+}
+
+.users-table.nav,  .certifies-table.nav, 
+.settings-table.nav {
+  border-top: 1px solid #606060;
+  padding: 6px;
+  margin-top: 8px;
+}
+
+.alert {
+  padding: 15px;
+  margin-bottom: 5px;
+  border: 1px solid;
+  border-radius: 4px;
+}
+
+.is-invalid {
+  border: 1px solid #a94442;
+  color: #a94442;
+  border-radius: 4px;
+}
+
+input.is-invalid{
+  border: 1px solid #a94442;
+  border-radius: 4px;
+}
+
+input:focus {
+  border : 1px solid #333;
+}
+
+input[type=text]:disabled,
+input[type=email]:disabled {
+  background: #ddd;
+}
+
+.alert.is-invalid {
+  border: 0px;
+}
+
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+.alert-success {
+	color: #3c763d;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+}
+
+
+.alert-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+
+.alert-info {
+  color: #f1f1f1;
+  background-color: #323232;
+  border-color: #323232;
+}
+
+.info-mark {
+  padding: 4px;
+	color: #323232;
+  background-color: #f1f1f1;
+  border-color: #f1f1f1;
+  border-radius: 4px;
+}
+
+.button {
+  border-radius: 4px;
+  font-weight: 900;
+}
+
+.button-youtube-login{
+  margin: 2rem auto;
+  display: block;
+  color: #c4302b;
+  font-size: 2.5rem;
+  background-color : #fff;
+  border: 1px solid #c4302b;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button-youtube-login:hover {
+  color: #c4302b;
+  border-color: #c4302b;
+}
+
+.button.youtube-subscribe,
+.button.youtube-subscribe:hover,
+.button.youtube-subscribe:visited,
+.button.youtube-subscribe:active {
+  color : #c4302b;
+  border-color : #c4302b;
+}
+
+.bt-preview {
+  margin-right: 4rem;
+}
+
+.button.bt-red,
+.button.bt-red:hover,
+.button.bt-red:visited,
+.button.bt-red:active {
+  color : #c4302b;
+  border-color : #c4302b;
+  margin-left: 4rem;
+}
+
+.button.bt-black,
+.button.bt-black:hover,
+.button.bt-black:visited,
+.button.bt-black:active {
+  color: #333;
+  border-color : #333;
+}
+
+.button-primary.bt-black,
+.button-primary.bt-black:hover,
+.button-primary.bt-black:visited,
+.button-primary.bt-black:active {
+  color: #F1F1F1;
+  background-color: #333;
+  border-color : #333;
+}
+
+.activity.question {
+  padding: 12px;
+  margin: 12px 4px;
+}
+
+/* Sections */
+.section {
+  text-align: center;
+}
+
+.section-heading,
+.section-description {
+  margin-bottom: 1.2rem;
+}
+
+.section.menu {
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+}
+
+.section.main {
+  min-height: 700px;
+}
+
+.section.certify {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+}
+
+.course.icon {
+  width: 64px;
+  margin: 0 auto;
+}
+
+.default-icon {
+  margin: 0 auto 1.5rem auto;
+  height:64px;
+  width:64px;
+  padding: 4px;
+  border:1px dashed #c0c0c0
+}
+
+.course.card {
+  height: 210px;
+  width: 320px;
+  float: left;
+  margin: 8px;
+  padding: 8px;
+  border: 1px solid #e0e0e0;
+  background-color: white;
+}
+
+.course.card > hr {
+  width: 80%;
+  margin: 8px auto;
+}
+
+.card.header {
+  display: block;
+  height: 35%;
+  margin-bottom: 1rem;
+}
+
+.card.thumbnail {
+  width: 64px;
+  padding: 4px;
+  float: left;
+  margin-right: 8px;
+}
+
+.card.title {
+  width:70%;
+  height:65px;
+  float: left;
+  padding:4px;
+  margin: 0 auto;
+}
+
+.card.title > p {
+  font-size: 2rem;
+}
+
+.card.description {
+  height: 40%;
+  padding: 0 4px;
+  margin-bottom: 1rem;
+}
+
+.card.description > hr{
+  margin: 1.25rem auto;
+}
+
+.card.container {
+  padding: 4px;
+  margin: 0 auto;
+}
+
+.separator {
+  margin-left: 0.5rem;
+}
+
+.card.progress {
+  width: 100%;
+  height: 6px;
+  background-color: #e0e0e0;
+}
+
+.card.progress > .finish {
+  height: 6px;
+  background-color: #606060;
+}
+
+/* Login */
+
+.container.login {
+  padding: 5% 0;
+  margin: 0 auto 2rem auto;
+  text-align: center;
+  max-width: 320px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.container.login > .alert {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.login-panel {
+  width: 90%;
+  padding: 5% 0;
+  margin: auto;
+}
+
+.login-panel p {
+  margin-bottom: 2rem;
+}
+
+.login-panel mark {
+  border-bottom: 1px solid #333;
+  background-color: transparent;
+}
+
+/* Menu */
+
+ul.navmenu, ul.socialmenu,
+ul.sidebarmenu, ul.none-mark {
+  list-style-type: none;
+  margin-bottom: 0;
+}
+
+ul.navmenu li, ul.socialmenu li {
+  display: inline;
+  margin-right: 16px;
+}
+
+ul.sidebarmenu li {
+  margin-bottom: 16px;
+}
+
+.embedded.video {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.embedded.video > iframe{
+  margin: 0 auto;
+}
+
+iframe, object, embed {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Bigger than 550 */
+@media (min-width: 550px) {
+  .embedded.video > iframe{
+    width: 427px;
+    height: 240px;
+  }
+}
+
+/* Bigger than 750 */
+@media (min-width: 750px) {
+  .embedded.video > iframe{
+    width: 640px;
+    height: 360px;
+  }
+}
+
+/* Bigger than 1000 */
+@media (min-width: 1000px) {
+  .embedded.video > iframe{
+    width: 768px;
+    height: 432px;
+  }
+}

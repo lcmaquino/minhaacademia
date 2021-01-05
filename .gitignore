@@ -1,0 +1,15 @@
+/minhaacademia/bootstrap/cache
+/minhaacademia/vendor
+/minhaacademia/public/hot
+/minhaacademia/public/storage
+/minhaacademia/storage/*.key
+/minhaacademia/storage
+/minhaacademia/.env
+/minhaacademia/.env.backup
+/minhaacademia/composer.lock
+/minhaacademia/package-lock
+/minhaacademia/.phpunit.result.cache
+/minhaacademia/Homestead.json
+/minhaacademia/Homestead.yaml
+/minhaacademia/npm-debug.log
+/minhaacademia/yarn-error.log
