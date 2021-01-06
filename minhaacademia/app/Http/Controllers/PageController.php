@@ -146,7 +146,7 @@ class PageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function terms(){
-        $settings = Settings::getSettingArray([
+        $settings = Setting::getSettingArray([
             'app_name',
             'app_contact_mail'
         ], '', true);
@@ -160,7 +160,7 @@ class PageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function privacy(){
-        $settings = Settings::getSettingArray([
+        $settings = Setting::getSettingArray([
             'app_name',
             'app_contact_mail'
         ], '', true);

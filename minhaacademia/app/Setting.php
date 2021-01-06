@@ -99,8 +99,8 @@ class Setting extends Model
     static public function getSettingArray($keys = [], $prefix = '', $strCamel = false) {
         $settings = [];
         foreach ($keys as $key) {
-            $key = $strCamel ? Str::camel($key) : $key;
-            $settings[$key] = Setting::getSetting($prefix . $key);
+            $keyCamel = $strCamel ? Str::camel($key) : $key;
+            $settings[$keyCamel] = Setting::getSetting($prefix . $key);
         }
         return $settings;
     }
