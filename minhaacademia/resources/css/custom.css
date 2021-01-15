@@ -344,18 +344,18 @@ input[type=email]:disabled {
   margin-left: 4rem;
 }
 
-.button.bt-black,
-.button.bt-black:hover,
-.button.bt-black:visited,
-.button.bt-black:active {
+.button.bt-login,
+.button.bt-login:hover,
+.button.bt-login:visited,
+.button.bt-login:active {
   color: #333;
   border-color : #333;
 }
 
-.button-primary.bt-black,
-.button-primary.bt-black:hover,
-.button-primary.bt-black:visited,
-.button-primary.bt-black:active {
+.button-primary.bt-login,
+.button-primary.bt-login:hover,
+.button-primary.bt-login:visited,
+.button-primary.bt-login:active {
   color: #F1F1F1;
   background-color: #333;
   border-color : #333;

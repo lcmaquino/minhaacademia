@@ -223,7 +223,7 @@ class MenuGenerator {
             $menu->add(
                 route($loginRoute), 
                 'Fazer Login', 
-                ['button', 'button-primary', 'bt-black']
+                ['button', 'button-primary', 'bt-login']
             );
         }
 
