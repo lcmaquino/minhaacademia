@@ -1,20 +1,30 @@
 @extends('layouts.main')
 @section('content')
 <div class="section about">
+
     <div class="container u-full-width">
         <div class="row">
-            <div class="six columns contact">
-                <img src="{{ asset('img/perfil-site.png') }}" alt="Prof. Aquino" class="u-full-width">
+            <div class="seven columns">
+                <h1 class="hearding">Conheça o canal</h1>
+                @isset($youtubeChannelDefaultVideo)
+                    <div class="embedded video">
+                        <iframe allowfullscreen title="Player de Vídeo youtube" src="https://www.youtube.com/embed/{{ $youtubeChannelDefaultVideo }}?feature=oembed&amp;start&amp;end&amp;wmode=opaque&amp;loop=0&amp;controls=1&amp;mute=0&amp;rel=0&amp;modestbranding=0"></iframe>
+                    </div>
+                @else
+                    <h3>Acesse o canal no YouTube! :)</h3>
+                @endisset
             </div>
-            <div class="six columns contact text-left">
+
+            <div class="five columns text-left">
                 <h1 class="hearding">Sobre</h1>
-                <p>
-                    Descreva aqui você e seu canal!
-                </p>
+                {!! $youtubeChannelAbout !!}
             </div>
         </div>
+
+        @if($channelStatistics || $courseStatistics)
+            <h1>Alguns números</h1>            
+        @endif
         @isset($channelStatistics)
-            <h1>Alguns números</h1>
             <div class="row text-center">
                 <div class="four columns">
                     <h2>{{ $channelStatistics['subscriberCount'] }}</h2>

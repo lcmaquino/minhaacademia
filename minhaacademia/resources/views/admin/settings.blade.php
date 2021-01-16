@@ -1,5 +1,11 @@
 @extends('layouts.panelBase')
 @section('content-panel')
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <p>Ops! Aconteceu algum erro. Vide as mensagens abaixo.</p>
+    </div>
+    @endif
+
     <form action="{{ route('settingUpdate') }}" method="post">
         @csrf
         @method('PUT')
@@ -222,6 +228,15 @@
             <input type="text" class="u-full-width @error('youtubeChannelDefaultVideo') is-invalid @enderror" name="youtubeChannelDefaultVideo" id="youtubeChannelDefaultVideo" value="{{ old('youtubeChannelDefaultVideo') ? old('youtubeChannelDefaultVideo') : $youtubeChannelDefaultVideo }}">
             <p class="information"><small>Vídeo exibido na página inicial. A cada 24h o vídeo mais recente do canal é carregado.</small></p>
             @error('youtubeChannelDefaultVideo')
+            <span class="alert is-invalid">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+            <br>
+
+            <label for="youtubeChannelAbout" class="u-pull-left">Sobre:</label>
+            <textarea id="youtubeChannelAbout" name="youtubeChannelAbout" class="u-full-width @error('youtubeChannelAbout') is-invalid @enderror" placeholder="Escreva sobre seu canal…">{{ old('youtubeChannelAbout') ?  old('youtubeChannelAbout') : $youtubeChannelAbout }}</textarea>
+            @error('youtubeChannelAbout')
             <span class="alert is-invalid">
                 <strong>{{ $message }}</strong>
             </span>

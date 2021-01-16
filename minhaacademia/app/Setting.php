@@ -131,6 +131,7 @@ class Setting extends Model
             'channel_title',
             'channel_url',
             'channel_default_video',
+            'channel_about',
         ], 'youtube_');
     }
 }

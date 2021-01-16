@@ -2,20 +2,8 @@
 @section('content')
 <div class="section about">
     <div class="container u-full-width">
-        <div class="seven columns">
-            <h1 class="hearding">Conheça o canal</h1>
-            @isset($video)
-                <div class="embedded video">
-                    <iframe allowfullscreen title="Player de Vídeo youtube" src="https://www.youtube.com/embed/{{ $video }}?feature=oembed&amp;start&amp;end&amp;wmode=opaque&amp;loop=0&amp;controls=1&amp;mute=0&amp;rel=0&amp;modestbranding=0"></iframe>
-                </div>
-            @else
-                <h3>Acesse o canal no YouTube! :)</h3>
-            @endisset
-        </div>
-
-        <div class="five columns contact">
-            <h1 class="hearding">Contato</h1>
-            <form action="{{ route('contactSend') }}" method="POST">
+        <h1 class="hearding">Contato</h1>
+        <form action="{{ route('contactSend') }}" method="POST">
             @csrf
             <div class="u-full-width">
                 <label class="u-pull-left" for="name">Nome:</label>
@@ -52,8 +40,7 @@
                 </div>
                 @endif
             <input class="button bt-black" type="submit" value="Enviar">
-            </form>
-        </div>
+        </form>
     </div>
 </div>
     @isset($googleRecaptchaSiteKey)

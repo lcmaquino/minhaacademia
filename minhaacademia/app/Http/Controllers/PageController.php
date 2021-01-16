@@ -110,10 +110,9 @@ class PageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function contact(){
-        $video = Setting::getSetting('youtube_channel_default_video');
         $googleRecaptchaSiteKey = Setting::getSetting('google_recaptcha_site_key');
 
-        return view('site.contact', ['video' => $video, 'googleRecaptchaSiteKey' => $googleRecaptchaSiteKey]);
+        return view('site.contact', ['googleRecaptchaSiteKey' => $googleRecaptchaSiteKey]);
     }
 
     /**
@@ -182,7 +181,12 @@ class PageController extends Controller
         $user = Auth::user() ? Auth::user() : User::firstAdmin();
         $user->refreshTokenIfNeeded();
         $channelStatistics = $user ? MyYouTubeChannel::getChannelStatistics($user->access_token) : null;
-       
-        return view('site.about', ['channelStatistics' => $channelStatistics, 'courseStatistics' => $courseStatistics]);
+        $info = Setting::getSettingArray(['youtube_channel_default_video', 'youtube_channel_about'], '', true);
+        $info['youtubeChannelAbout'] = isset($info['youtubeChannelAbout']) ? 
+            (new Filter($info['youtubeChannelAbout']))->render() : '';
+        $info['courseStatistics'] = $courseStatistics;
+        $info['channelStatistics'] = $channelStatistics;
+
+        return view('site.about', $info);
     }
 }
