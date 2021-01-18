@@ -117,11 +117,12 @@ Após efetuar essa alteração, clique no menu lateral `Configurações`
 para inserir os dados de sua aplicação e de seu canal no YouTube.
 
 Para que o usuário possa efetuar o login na sua aplicação usando a conta dele no
-YouTube, você precisa criar um projeto de aplicação web no Google Console com
-credenciais de OAuth 2.0. Crie esse projeto em
-https://console.developers.google.com/ e ative a "YouTube Data API v3". Na
-"Tela de consentimento OAuth" use os escopos `userinfo.email`, `openid` e
-`youtube.readonly`.
+YouTube, você precisa criar um projeto de aplicação web no Google Console. Crie
+esse projeto em https://console.developers.google.com/ e ative a 
+"YouTube Data API v3". Na "Tela de consentimento OAuth" use os escopos
+`userinfo.email`, `openid` e `youtube.readonly`. Adicione uma credencial
+OAuth 2.0 e configure o enredeço `http://localhost/site/login/google/callback`
+como um URI de redirecionamento autorizado.
 
 **Observação**: devido ao uso do escopo `youtube.readonly` o seu projeto de
 aplicação web terá que passar por um processo de verificação por um time do

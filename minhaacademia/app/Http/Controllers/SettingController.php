@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\URL;
 
 class SettingController extends Controller
 {
@@ -83,6 +84,7 @@ class SettingController extends Controller
      * @return void
      */
     public function validateSettings(Request $request){
+        $googleRedirectUri = URL::to('/login') . '/google/callback';
         $rules = [
             'appName' => ['required', 'string', 'max:512'],
             'appUrl' => ['required', 'url', 'max:512'],
@@ -91,7 +93,7 @@ class SettingController extends Controller
             'defaultLogin' => ['required', 'in:form,oauth2'],
             'googleClientId' => ['nullable', 'string', 'max:512'],
             'googleClientSecret' => ['nullable', 'string', 'max:512'],
-            'googleRedirectUri' => ['nullable', 'url', 'max:512'],
+            'googleRedirectUri' => ['nullable', 'url', 'in:' . $googleRedirectUri],
             'donationUrl' => ['nullable', 'url', 'max:512'],
             'certifySignatureName' => ['required', 'string', 'max:512'],
             'certifyState' => ['required', 'string', 'max:512'],
@@ -135,7 +137,7 @@ class SettingController extends Controller
             'googleClientSecret.string' => 'O :attribute deve ser formado por caracteres alfanuméricos',
             'googleClientSecret.max' => 'O :attribute deve ter no máximo 512 caracteres',
             'googleRedirectUri.url' => 'O :attribute deve ser um URL válido',
-            'googleRedirectUri.max' => 'O :attribute deve ter no máximo 512 caracteres',
+            'googleRedirectUri.in' => 'O :attribute deve ser igual a: ' . $googleRedirectUri,
             'donationUrl.url' => 'O :attribute deve ser um URL válido',
             'donationUrl.max' => 'O :attribute deve ter no máximo 512 caracteres',
             'certifySignatureName.required' => 'É obrigatório informar um :attribute',

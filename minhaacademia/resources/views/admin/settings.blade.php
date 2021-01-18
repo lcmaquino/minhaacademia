@@ -2,7 +2,7 @@
 @section('content-panel')
     @if ($errors->any())
     <div class="alert alert-danger">
-        <p>Ops! Aconteceu algum erro. Vide as mensagens abaixo.</p>
+        <p>Ops! Aconteceu algum erro. Role a página para ver as mensagens de erro.</p>
     </div>
     @endif
 
@@ -38,15 +38,6 @@
             @enderror
             <br>
 
-            <label for="minScore" class="u-pull-left">Pontuação Mínima:</label>
-            <input type="number" class="u-full-width @error('minScore') is-invalid @enderror" name="minScore" id="minScore" value="{{ old('minScore') ? old('minScore') : $minScore }}">
-            @error('minScore')
-            <span class="alert is-invalid">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
-            <br>
-
             <label for="defaultLogin" class="u-pull-left">Login Padrão:</label>
             <select name="defaultLogin" class="u-full-width" id="defaultLogin">
                 <option value="form" {{ (old('defaulLogin') === 'form' || $defaultLogin === 'form') ? 'selected' : '' }}>Formulário</option>
@@ -54,7 +45,20 @@
             </select>
             <br>
 
+            <label for="donationUrl" class="u-pull-left">Doação (URL):</label>
+            <input type="text" class="u-full-width @error('donationUrl') is-invalid @enderror" name="donationUrl" id="donationUrl" value="{{ old('donationUrl') ? old('donationUrl') : $donationUrl }}">
+            <p class="information"><small(>(*) Campo Opcional. URL para uma campanha de doação.</small></p>
+            @error('donationUrl')
+            <span class="alert is-invalid">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+            <br>
+
             @if ($defaultLogin === 'oauth2')
+                <h5>Cliente OAtuh 2.0</h5>
+                <p class="information"><small>Configure o cliente de sua aplicação em <a href="https://console.developers.google.com/">Google Console</a>.</small></p>
+
                 <label for="googleClientId" class="u-pull-left">Google Client ID:</label>
                 <input type="text" class="u-full-width @error('googleClientId') is-invalid @enderror" name="googleClientId" id="googleClientId" value="{{ old('googleClientId') ? old('googleClientId') : $googleClientId }}">
                 @error('googleClientId')
@@ -83,18 +87,18 @@
                 <br>
             @endif
 
-            <label for="donationUrl" class="u-pull-left">Doação (URL):</label>
-            <input type="text" class="u-full-width @error('donationUrl') is-invalid @enderror" name="donationUrl" id="donationUrl" value="{{ old('donationUrl') ? old('donationUrl') : $donationUrl }}">
-            @error('donationUrl')
+            <hr>
+
+            <h5>Certificados</h5>
+
+            <label for="minScore" class="u-pull-left">Pontuação Mínima nas Atividades:</label>
+            <input type="number" class="u-full-width @error('minScore') is-invalid @enderror" name="minScore" id="minScore" value="{{ old('minScore') ? old('minScore') : $minScore }}">
+            @error('minScore')
             <span class="alert is-invalid">
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
             <br>
-
-            <hr>
-
-            <h5>Certificados</h5>
 
             <label for="certifySignatureName" class="u-pull-left">Nome na assinatura:</label>
             <input type="text" class="u-full-width @error('certifySignatureName') is-invalid @enderror" name="certifySignatureName" id="certifySignatureName" value="{{ old('certifySignatureName') ? old('certifySignatureName') : $certifySignatureName }}">
@@ -199,6 +203,7 @@
 
             <label for="youtubeChannelId" class="u-pull-left">ID:</label>
             <input type="text" class="u-full-width @error('youtubeChannelId') is-invalid @enderror" name="youtubeChannelId" id="youtubeChannelId" value="{{ old('youtubeChannelId') ? old('youtubeChannelId') : $youtubeChannelId }}">
+            <p class="information"><small>Exemplo: youtube.com/channel/<strong>abcd</strong>, ID: <strong>abcd</strong>.</small></p>
             @error('youtubeChannelId')
             <span class="alert is-invalid">
                 <strong>{{ $message }}</strong>
@@ -226,7 +231,7 @@
 
             <label for="youtubeChannelDefaultVideo" class="u-pull-left">Vídeo padrão:</label>
             <input type="text" class="u-full-width @error('youtubeChannelDefaultVideo') is-invalid @enderror" name="youtubeChannelDefaultVideo" id="youtubeChannelDefaultVideo" value="{{ old('youtubeChannelDefaultVideo') ? old('youtubeChannelDefaultVideo') : $youtubeChannelDefaultVideo }}">
-            <p class="information"><small>Vídeo exibido na página inicial. A cada 24h o vídeo mais recente do canal é carregado.</small></p>
+            <p class="information"><small>Exemplo: youtube.com/watch?v=<strong>abcd</strong>, Vídeo padrão: <strong>abcd</strong>.</small></p>
             @error('youtubeChannelDefaultVideo')
             <span class="alert is-invalid">
                 <strong>{{ $message }}</strong>
@@ -236,6 +241,7 @@
 
             <label for="youtubeChannelAbout" class="u-pull-left">Sobre:</label>
             <textarea id="youtubeChannelAbout" name="youtubeChannelAbout" class="u-full-width @error('youtubeChannelAbout') is-invalid @enderror" placeholder="Escreva sobre seu canal…">{{ old('youtubeChannelAbout') ?  old('youtubeChannelAbout') : $youtubeChannelAbout }}</textarea>
+            <p class="information"><small><strong>Atenção</strong>: use no máximo 488 caracteres.</small></p>
             @error('youtubeChannelAbout')
             <span class="alert is-invalid">
                 <strong>{{ $message }}</strong>
@@ -247,6 +253,8 @@
 
             <h5>Mídia social</h5>
 
+            <p class="information"><small>Insira apenas o usuário de cada rede. Exemplo: instagram.com/meu_usuario, campo Instagram: meu_usuario.</small></p>
+            
             <label for="socialMediaFacebook" class="u-pull-left">Facebook:</label>
             <input type="text" class="u-full-width @error('socialMediaFacebook') is-invalid @enderror" name="socialMediaFacebook" id="socialMediaFacebook" value="{{ old('socialMediaFacebook') ? old('socialMediaFacebook') : $socialMediaFacebook }}">
             @error('socialMediaFacebook')
@@ -277,6 +285,8 @@
             <hr>
 
             <h5>Google reCAPTCHA v3</h5>
+
+            <p class="information"><small>Evite <em>spam</em> no formulário de contato usando <a href="https://www.google.com/recaptcha">Google reCAPTCHA v3</a>.</small></p>
 
             <label for="googleRecaptchaSiteKey" class="u-pull-left">Chave do Site:</label>
             <input type="text" class="u-full-width @error('googleRecaptchaSiteKey') is-invalid @enderror" name="googleRecaptchaSiteKey" id="googleRecaptchaSiteKey" value="{{ old('googleRecaptchaSiteKey') ? old('googleRecaptchaSiteKey') : $googleRecaptchaSiteKey }}">
