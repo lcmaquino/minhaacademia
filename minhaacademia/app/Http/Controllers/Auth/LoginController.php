@@ -211,6 +211,8 @@ class LoginController extends Controller
             if(empty($user)){
                 if($subscribed){
                     $user = User::store($ytuser);
+                }else{
+                    MyYouTubeChannel::revokeToken($ytuser->token);
                 }
             }else{
                 if(empty($user->refresh_token) && empty($ytuser->refreshToken)) {
@@ -229,7 +231,7 @@ class LoginController extends Controller
                 ]);
             }
 
-            if($subscribed || !$user->isStudent()){
+            if($subscribed || (!empty($user) && !$user->isStudent())){
                 $rememberMe = true;
                 Auth::login($user, $rememberMe);
             }else{
