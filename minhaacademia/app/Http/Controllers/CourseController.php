@@ -338,6 +338,7 @@ class CourseController extends Controller
         $data['video'] = $course->video;
         $data['description'] = $course->description;
         $data['duration'] = $course->duration;
+        $data['visibility'] = $course->visibility;
 
         foreach($course->modules as $module) {
             $data['modules'][] = [
