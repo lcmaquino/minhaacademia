@@ -21,22 +21,8 @@ class QuestionTableSeeder extends Seeder
 
         Question::create([
             'content' => 'Questão 2',
-            'answer' => '1',
+            'answer' => '0',
             'order' => '1',
-            'activity' => '1',
-        ]);
-
-        Question::create([
-            'content' => 'Questão 3',
-            'answer' => '1',
-            'order' => '2',
-            'activity' => '1',
-        ]);
-
-        Question::create([
-            'content' => 'Questão 4',
-            'answer' => '2',
-            'order' => '3',
             'activity' => '1',
         ]);
 
@@ -49,7 +35,7 @@ class QuestionTableSeeder extends Seeder
 
         Question::create([
             'content' => 'Questão 2',
-            'answer' => '1',
+            'answer' => '0',
             'order' => '1',
             'activity' => '2',
         ]);
@@ -63,7 +49,7 @@ class QuestionTableSeeder extends Seeder
 
         Question::create([
             'content' => 'Questão 2',
-            'answer' => '1',
+            'answer' => '0',
             'order' => '1',
             'activity' => '3',
         ]);
@@ -77,7 +63,7 @@ class QuestionTableSeeder extends Seeder
 
         Question::create([
             'content' => 'Questão 2',
-            'answer' => '1',
+            'answer' => '0',
             'order' => '1',
             'activity' => '4',
         ]);

@@ -37,6 +37,7 @@ class SettingTableSeeder extends Seeder
             'youtube_channel_title' => null,
             'youtube_channel_url' => null,
             'youtube_channel_default_video' => null,
+            'youtube_channel_about' => 'Seção sobre seu canal.',
             'social_media_facebook' => null,
             'social_media_instagram' => null,
             'social_media_twitter' => null,

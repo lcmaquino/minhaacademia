@@ -12,7 +12,7 @@ class ItemTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($question = 1; $question < 12; $question++) {
+        for ($question = 1; $question < 10; $question++) {
             for ($item = 1; $item < 5; $item++) {
                 Item::create([
                     'content' => 'Alternativa ' . $item,
