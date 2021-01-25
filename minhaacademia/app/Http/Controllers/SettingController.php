@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Setting;
+use App\MinhaAcademia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\App;
 
 class SettingController extends Controller
 {
@@ -29,6 +31,10 @@ class SettingController extends Controller
                 $param[$key] = $setting->getValue();
             }
         }
+
+        $param['applicationVersion'] = MinhaAcademia::version();
+        $param['hasUpdate'] = MinhaAcademia::hasUpdate();
+        $param['laravelVersion'] = App::VERSION();
 
         return view('admin.settings', $param);
     }
@@ -218,5 +224,18 @@ class SettingController extends Controller
         ];
 
         $request->validate($rules, $error_messages, $attributes);
+    }
+
+    /**
+     * Update the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     */
+    public function updateApplication(Request $request)
+    {
+        $this->authorize('update', Setting::class);
+
+        $ma = new MinhaAcademia();
+        $ma->update();
     }
 }

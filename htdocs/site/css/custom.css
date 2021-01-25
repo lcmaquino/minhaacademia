@@ -26,6 +26,12 @@ a.login {
   text-decoration: none;
 }
 
+a.button {
+  color: #555;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
 ol.upper-latin {
   list-style-type: upper-latin;
 }

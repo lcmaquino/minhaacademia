@@ -56,6 +56,9 @@ Route::middleware('auth')->group(function () {
     Route::put('/configuracoes', 'SettingController@update')->name('settingUpdate');
     Route::get('/configuracoes/senha/limpar', 'SettingController@clearUserMailPassword')->name('settingClearUserMailPassowrd');
 
+    Route::get('/atualizar', 'SettingController@updateApplication')
+        ->name('updateApplication');
+
     Route::post('/cursos', 'CourseController@store')->name('courseStore');
     Route::put('/cursos/{course}', 'CourseController@update')->name('courseUpdate');
     Route::delete('/cursos/{course}', 'CourseController@destroy')->name('courseDestroy');
