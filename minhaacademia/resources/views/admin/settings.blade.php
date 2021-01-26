@@ -317,40 +317,34 @@
     <div class="u-full-width text-left">
         <h5>Versão da aplicação</h5>
         <p>{{ $applicationVersion }}</p>
-        @if($hasUpdate)
-            <p id="update-button"><a href="#" class="button" onclick="load_home(event, '{{ route('updateApplication') }}'); return false;">Atualizar</a></p>
-            <script>
-                function load_home(e, uri){
-                    e.preventDefault();
-                    var updateButton = document.getElementById('update-button');
-                    var aux = updateButton.innerHTML;
-                    updateButton.innerHTML += ' <img src="{{ asset('img/loading.gif') }}" alt="Carregando…" height="32" style="vertical-align:middle;">'
-                    var con = document.getElementById('content');
-                    var xhr = new XMLHttpRequest();
-                    con.innerHTML = '';
-                    xhr.open("GET", uri, true);
-                    xhr.setRequestHeader('Content-type', 'text/html');
-                    xhr.onreadystatechange = function(e) {
-                        if(xhr.readyState == 3 || xhr.readyState == 4) {
-                            con.innerHTML = xhr.responseText;
-                        }
-                        if(xhr.readyState == 4) {
-                            updateButton.innerHTML = aux;
-                        }
-                    }
-                    xhr.send();
-                }
-                </script>                
-            <div id="content"></div>
-        @elseif($hasUpdate === null)
-            <p>Não foi possível verificar se há atualizações. Tente novamente mais tarde.</p>
-        @else
-            <p>Nenhuma atualização disponível.</p>
-        @endif
+        <p id="update-button"><a href="#" class="button" onclick="updateApplication(event, '{{ route('updateApplication') }}'); return false;">Atualizar</a></p>
+        <div id="update-info"></div>
 
         <hr>
         
         <h5>Licenças de código aberto</h5>
         <p><a href="https://github.com/laravel/framework/blob/v{{ $laravelVersion }}/LICENSE.md">Laravel {{ $laravelVersion }}</a></p>
     </div>
+    <script>
+        function updateApplication(e, uri){
+            e.preventDefault();
+            var updateButton = document.getElementById('update-button');
+            var aux = updateButton.innerHTML;
+            updateButton.innerHTML += ' <img src="{{ asset('img/loading.gif') }}" alt="Carregando…" height="32" style="vertical-align:middle;">'
+            var updateInfo = document.getElementById('update-info');
+            var xhr = new XMLHttpRequest();
+            updateInfo.innerHTML = '';
+            xhr.open("GET", uri, true);
+            xhr.setRequestHeader('Content-type', 'text/html');
+            xhr.onreadystatechange = function(e) {
+                if(xhr.readyState == 3 || xhr.readyState == 4) {
+                    updateInfo.innerHTML = xhr.responseText;
+                }
+                if(xhr.readyState == 4) {
+                    updateButton.innerHTML = aux;
+                }
+            }
+            xhr.send();
+        }
+    </script>
 @endsection

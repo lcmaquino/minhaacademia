@@ -33,7 +33,6 @@ class SettingController extends Controller
         }
 
         $param['applicationVersion'] = MinhaAcademia::version();
-        $param['hasUpdate'] = MinhaAcademia::hasUpdate();
         $param['laravelVersion'] = App::VERSION();
 
         return view('admin.settings', $param);

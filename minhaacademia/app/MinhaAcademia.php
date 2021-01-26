@@ -15,7 +15,7 @@ class MinhaAcademia
      *
      * @var string
      */
-    protected const VERSION = '1.0.7';
+    protected const VERSION = '1.0.8';
 
     /**
      * Number of steps for updating process.
@@ -107,6 +107,17 @@ class MinhaAcademia
      */
     public function update(){
         $updated = true;
+        $hasUpdate = $this->hasUpdate();
+
+        if($hasUpdate === null) {
+            $this->flushMessage('Não foi possível verificar novas atualizações. Tente novamente mais tarde.');
+            return false;
+        }
+
+        if($hasUpdate === false) {
+            $this->flushMessage('A sua aplicação já está atualizada com a versão mais recente.');
+            return false;
+        }
 
         while($this->updating()) {
             $this->flushMessage($this->messages[$this->step]);
@@ -121,6 +132,7 @@ class MinhaAcademia
             $this->flushMessage('Atualização completa. Nova versão: ' . $this->getLatestVersion());
         }else{
             $this->flushMessage('Não foi possível concluir a atualização.');
+            $this->restore();
         }
         
         return $updated;
@@ -175,13 +187,13 @@ class MinhaAcademia
      * 
      * Returns null if it could not get the application latest version.
      * 
-     * @return int
+     * @return bool|null
      */
     static public function hasUpdate(){
         $currentVersion = 'v' . static::VERSION;
         $latestVersion = static::getLatestVersion();
 
-        return empty($latestVersion) ? null : strcmp($latestVersion, $currentVersion);
+        return empty($latestVersion) ? null : (strcmp($latestVersion, $currentVersion) > 0);
     }
 
     /**
@@ -270,6 +282,24 @@ class MinhaAcademia
 
         foreach($this->updateDirs as $d) {
             if (!$fs->copyDirectory($baseDir . $d, $this->zipDir . '/backup' . $d)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Restore the backup.
+     *
+     * @return bool
+     */
+    protected function restore(){
+        $baseDir = base_path();
+        $fs = new  Filesystem();
+
+        foreach($this->updateDirs as $d) {
+            if (!$fs->copyDirectory($this->zipDir . '/backup' . $d, $baseDir . $d)) {
                 return false;
             }
         }
