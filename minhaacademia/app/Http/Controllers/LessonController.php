@@ -155,10 +155,12 @@ class LessonController extends Controller
     
                     if (!empty($playlist)) {
                         foreach ($playlist->getItems() as $video) {
-                            $lesson = $this->videoToLesson($video);
-                            $lesson->module = $request->module;
-                            $lesson->order = $module->lessons()->count();
-                            $lesson->save();
+                            if ($video) {
+                                $lesson = $this->videoToLesson($video);
+                                $lesson->module = $request->module;
+                                $lesson->order = $module->lessons()->count();
+                                $lesson->save();
+                            }
                         }
                     }
     
