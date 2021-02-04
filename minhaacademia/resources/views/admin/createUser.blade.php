@@ -15,7 +15,7 @@
         </div>
         @endif
 
-        <form action="{{ route('imageStore') }}" method="post">
+        <form action="{{ route('userStore') }}" method="post">
             @csrf
             <div class="u-full-width text-left">
                 <label for="name" class="u-pull-left">Nome:</label>

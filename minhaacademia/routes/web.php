@@ -45,7 +45,7 @@ Route::middleware('menugenerator', 'mathjax')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/imagens', 'ImageController@store')->name('imageStore');
     Route::delete('/imagens/{image}', 'ImageController@destroy')->name('imageDestroy');
-    Route::post('/usuarios', 'UserController@store')->name('imageStore');
+    Route::post('/usuarios', 'UserController@store')->name('userStore');
 
     Route::put('/usuarios/{user}/senha', 'UserController@updatePassword')->name('userUpdatePassword');
     Route::put('/usuarios/{user}', 'UserController@update')->name('userUpdate');

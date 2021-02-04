@@ -327,11 +327,23 @@ class Filter
      * @return string
      */
     public function _addLinks($text = ''){
-        //find and replace all links
-        $text = preg_replace('@((https?://)?([-\w]+\.[-\w\.]+)+\w(:\d+)?(/([-\w/_\.]*(\?\S+)?)?)*)@', '<a href="$1">$1</a>', $text);
-        //add "http://" if not set
-        $text = preg_replace('/<a\s[^>]*href\s*=\s*"((?!https?:\/\/)[^"]*)"[^>]*>/i', '<a href="http://$1">', $text);
-        
+        $lines = explode("\r\n", $text);
+        foreach($lines as $line) {
+            $words = explode(' ', $line);
+            $newline = null;
+            foreach($words as $word){
+                if ((strpos($word, "http://") === 0) ||
+                    (strpos($word, "https://") === 0) ||
+                    (strpos($word, "www.") === 0)){
+                    $linkHtml = '<a href="' . $word . '">' . $word . '</a>';
+                    $newline = str_replace($word, $linkHtml, $line);
+                }
+            }
+            if ($newline){
+                $text = str_replace($line, $newline, $text);
+            }
+        }
+
         return $text;
     }
 
@@ -369,7 +381,7 @@ class Filter
                 $sd .= $suffix;
             }
         }
-        if (empty($sd)) dd('filter', $text, $lines);
+
         if (empty($sd) && count($lines) > 1) {
             $lines = array_diff($lines, [$lines[0]]);
             $text = implode($newline, $lines);
