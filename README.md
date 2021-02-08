@@ -99,7 +99,9 @@ o primeiro login usando o e-mail e a senha do administrador. Em seguida, clique
 no ícone de engrenagem (no canto superior direito) para acessar o menu
 `Configurações` e inserir os dados de sua aplicação e de seu canal no YouTube.
 
-Antes de começar a modificar sua aplicação eu recomendo alterar as permisões
+**Observação**
+
+Antes de começar a modificar sua aplicação eu recomendo alterar as permissões
 dos diretórios e arquivos.
 ```
 $ cd /opt/lampp
@@ -109,16 +111,6 @@ $ chmod -R g+w minhaacademia/bootstrap/cache
 $ find minhaacademia -type f -exec chmod 644 {} \;
 $ find htdocs/site -type d -exec chmod 775 {} \;
 $ find htdocs/site -type f -exec chmod 644 {} \;
-```
-
-Dentro do diretório `/opt/lampp/minhaacademia` crie o arquivo `.env` para
-configurar o ambiente de sua aplicação. O arquivo
-`/opt/lampp/minhaacademia/.env.example` serve como modelo. Além disso,
-gere uma chave de criptografia para a sua aplicação.
-```
-$ cd /opt/lampp/minhaacademia
-$ cp .env.example .env
-$ php artisan key:generate
 ```
 
 ### Instalação no Windows
@@ -192,7 +184,9 @@ esse projeto em https://console.developers.google.com/ e ative a
 OAuth 2.0 e configure o endereço `https://localhost/site/login/google/callback`
 como um URI de redirecionamento autorizado.
 
-**Observação**: devido ao uso do escopo `youtube.readonly` o seu projeto de
+**Observação**
+
+Devido ao uso do escopo `youtube.readonly` o seu projeto de
 aplicação web terá que passar por um processo de verificação por um time do
 Google. Enquanto a sua aplicação não for aprovada na verificação, o usuário verá
 uma tela chamada "App não verificado" durante o processo de login. Só é
