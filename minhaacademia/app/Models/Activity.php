@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use App\Filter;
 use Illuminate\Database\Eloquent\Model;
@@ -25,7 +25,7 @@ class Activity extends Model
      */
     public function module()
     {
-        return $this->belongsTo('App\Module', 'module', 'id')->first();
+        return $this->belongsTo('App\Models\Module', 'module', 'id')->first();
     }
 
     /**
@@ -35,7 +35,7 @@ class Activity extends Model
      */
     public function questions()
     {
-        return $this->hasMany('App\Question', 'activity', 'id')->orderBy('order', 'asc');
+        return $this->hasMany('App\Models\Question', 'activity', 'id')->orderBy('order', 'asc');
     }
 
     /**
@@ -45,7 +45,7 @@ class Activity extends Model
      */
     public function images()
     {
-        return $this->hasMany('App\Image', 'model_id', 'id')->where(['model' => 'Activity']);
+        return $this->hasMany('App\Models\Image', 'model_id', 'id')->where(['model' => 'Activity']);
     }
 
     /**

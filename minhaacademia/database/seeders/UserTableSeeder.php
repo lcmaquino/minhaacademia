@@ -1,7 +1,9 @@
 <?php
+namespace Database\Seeders;
 
-use App\User;
-use App\Role;
+use Hash;
+use App\Models\User;
+use App\Models\Role;
 use Illuminate\Database\Seeder;
 
 class UserTableSeeder extends Seeder

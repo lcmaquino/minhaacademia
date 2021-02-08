@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Item;
-use App\Question;
+use App\Models\Item;
+use App\Models\Question;
 use App\Filter;
 use App\ChangeOrder;
 use App\Rules\ModelExists;
@@ -128,7 +128,7 @@ class ItemController extends Controller
 
         $rules = [
             'content' => ['required', 'string', 'max:5000'],
-            'question' => [new ModelExists('App\\Question', $message)],
+            'question' => [new ModelExists('App\\Models\\Question', $message)],
             'action' => ['required', 'in:Salvar,Pré-visualizar'],
         ];
 

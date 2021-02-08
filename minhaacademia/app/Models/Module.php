@@ -1,7 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use App\Filter;
 use Illuminate\Database\Eloquent\Model;
 
 class Module extends Model
@@ -24,7 +25,7 @@ class Module extends Model
      */
     public function course()
     {
-        return $this->belongsTo('App\Course', 'course', 'id')->first();
+        return $this->belongsTo('App\Models\Course', 'course', 'id')->first();
     }
 
     /**
@@ -34,7 +35,7 @@ class Module extends Model
      */
     public function lessons()
     {   
-        return $this->hasMany('App\Lesson', 'module', 'id')->orderBy('order', 'asc');
+        return $this->hasMany('App\Models\Lesson', 'module', 'id')->orderBy('order', 'asc');
     }
 
     /**
@@ -44,7 +45,7 @@ class Module extends Model
      */
     public function activities()
     {
-        return $this->hasMany('App\Activity', 'module', 'id')->orderBy('order', 'asc');
+        return $this->hasMany('App\Models\Activity', 'module', 'id')->orderBy('order', 'asc');
     }
 
     /**

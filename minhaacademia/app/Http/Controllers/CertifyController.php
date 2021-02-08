@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Certify;
-use App\User;
-use App\Course;
-use App\Setting;
+use App\Models\Setting;
+use App\Models\User;
+use App\Models\Certify;
+use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\MessageBag;

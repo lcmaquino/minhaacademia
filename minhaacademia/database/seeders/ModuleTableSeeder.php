@@ -1,7 +1,8 @@
 <?php
+namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Module;
+use App\Models\Module;
 class ModuleTableSeeder extends Seeder
 {
     /**

@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Course;
-use App\Module;
-use App\Lesson;
-use App\Activity;
-use App\Question;
-use App\Item;
-use App\Certify;
+use App\Models\Course;
+use App\Models\Module;
+use App\Models\Lesson;
+use App\Models\Activity;
+use App\Models\Question;
+use App\Models\Item;
+use App\Models\Certify;
 use App\Filter;
 use App\Rules\CourseJson;
 use Illuminate\Support\Str;

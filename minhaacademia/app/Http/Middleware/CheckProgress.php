@@ -3,9 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use App\Course;
-use App\Module;
-use App\Certify;
+use App\Models\Course;
+use App\Models\Module;
+use App\Models\Certify;
 use Illuminate\Support\Facades\Auth;
 
 class CheckProgress

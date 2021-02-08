@@ -1,9 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use App\Filter;
-use App\LessonProgress;
 use Illuminate\Database\Eloquent\Model;
 
 class Lesson extends Model
@@ -26,7 +25,7 @@ class Lesson extends Model
      */
     public function module()
     {
-        return $this->belongsTo('App\Module', 'module', 'id')->first();
+        return $this->belongsTo('App\Models\Module', 'module', 'id')->first();
     }
 
     /**
@@ -36,7 +35,7 @@ class Lesson extends Model
      */
     public function images()
     {
-        return $this->hasMany('App\Image', 'model_id', 'id')->where(['model' => 'Lesson']);
+        return $this->hasMany('App\Models\Image', 'model_id', 'id')->where(['model' => 'Lesson']);
     }
 
     /**

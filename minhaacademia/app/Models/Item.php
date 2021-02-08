@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use App\Filter;
 use Illuminate\Database\Eloquent\Model;
@@ -25,7 +25,7 @@ class Item extends Model
      */
     public function question()
     {
-        return $this->belongsTo('App\Question', 'question', 'id')->first();
+        return $this->belongsTo('App\Models\Question', 'question', 'id')->first();
     }
 
     /**
@@ -36,7 +36,7 @@ class Item extends Model
      */
     public function images()
     {
-        return $this->hasMany('App\Image', 'model_id', 'id')->where(['model' => 'Item']);
+        return $this->hasMany('App\Models\Image', 'model_id', 'id')->where(['model' => 'Item']);
     }
 
     /**

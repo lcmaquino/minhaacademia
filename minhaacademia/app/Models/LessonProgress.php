@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ActivityProgress extends Model
+class LessonProgress extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,7 +12,7 @@ class ActivityProgress extends Model
      * @var array
      */
     protected $fillable = [
-        'user', 'activity'
+        'user', 'lesson'
     ];
     
     public $timestamps = false;

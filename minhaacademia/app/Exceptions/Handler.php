@@ -2,7 +2,7 @@
 
 namespace App\Exceptions;
 
-use App\Setting;
+use App\Models\Setting;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 

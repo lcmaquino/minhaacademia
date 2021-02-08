@@ -3,9 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use App\User;
-use App\Certify;
-use App\Setting;
+use App\Models\User;
+use App\Models\Certify;
+use App\Models\Setting;
 use Illuminate\Support\Facades\Auth;
 
 class Paginate

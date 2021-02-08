@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,6 +23,7 @@ class Image extends Model
      */
     public function model($model = '')
     {
-        return $this->belongsTo('App\\' . $model, 'model_id', 'id')->first();
+        $nameSpace = 'App\\Models\\';
+        return $this->belongsTo($nameSpace . $model, 'model_id', 'id')->first();
     }
 }

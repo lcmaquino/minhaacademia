@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Setting;
+use App\Models\Setting;
 /*
 |--------------------------------------------------------------------------
 | Web Routes

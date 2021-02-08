@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Role;
-use App\Certify;
+use App\Models\Role;
+use App\Models\User;
+use App\Models\Certify;
 use App\Rules\UniqueEmail;
 use App\Rules\UniqueCPF;
 use MyYouTubeChannel;
@@ -71,7 +71,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
@@ -82,7 +82,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
@@ -97,7 +97,7 @@ class UserController extends Controller
     /**
      * Show the form for editing user's password.
      *
-     * @param  \App\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function editPassword(User $user)
@@ -119,7 +119,7 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
@@ -137,7 +137,7 @@ class UserController extends Controller
      * Update the specified resource in storage (admin version).
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     private function updateByAdmin(Request $request, User $user) {
@@ -173,7 +173,7 @@ class UserController extends Controller
      * Update the specified resource in storage (student or teacher version).
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     private function updateByNormalUser(Request $request, User $user) {
@@ -196,7 +196,7 @@ class UserController extends Controller
      * Update user's password.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function updatePassword(Request $request, User $user)
@@ -329,7 +329,7 @@ class UserController extends Controller
      * 
      * Only admin users can run this method. See App\Polices\UserPolicy.
      * 
-     * @param  \App\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function destroyConfirmation()
@@ -343,7 +343,7 @@ class UserController extends Controller
      * 
      * Only admin users can run this method. See App\Polices\UserPolicy.
      * 
-     * @param  \App\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)

@@ -2,10 +2,10 @@
 
 namespace App\Rules;
 
-use App\Course;
-use App\Module;
-use App\Activity;
-use App\Question;
+use App\Models\Course;
+use App\Models\Module;
+use App\Models\Activity;
+use App\Models\Question;
 use Illuminate\Contracts\Validation\Rule;
 
 class ModelExists implements Rule

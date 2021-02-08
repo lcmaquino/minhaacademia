@@ -1,7 +1,8 @@
 <?php
+namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Question;
+use App\Models\Question;
 
 class QuestionTableSeeder extends Seeder
 {

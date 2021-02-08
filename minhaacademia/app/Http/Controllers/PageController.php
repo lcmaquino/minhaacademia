@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Certify;
-use App\LessonProgress;
-use App\ActivityProgress;
+use App\Models\Setting;
+use App\Models\User;
+use App\Models\Certify;
+use App\Models\LessonProgress;
+use App\Models\ActivityProgress;
 use App\ContactForm;
-use App\Setting;
 use App\Filter;
 use App\ServiceMailer;
 use App\Mail\Contact;

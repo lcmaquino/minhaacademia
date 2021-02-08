@@ -2,9 +2,9 @@
 
 namespace App\Policies;
 
-use App\Certify;
-use App\Course;
-use App\User;
+use App\Models\Certify;
+use App\Models\Course;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class CertifyPolicy
@@ -14,7 +14,7 @@ class CertifyPolicy
     /**
      * Determine whether the user can view any models.
      *
-     * @param  \App\User  $user
+     * @param  \App\Models\User  $user
      * @return mixed
      */
     public function viewAny(User $user = null)
@@ -25,8 +25,8 @@ class CertifyPolicy
     /**
      * Determine whether the user can view the model.
      *
-     * @param  \App\User  $user
-     * @param  \App\Certify  $certify
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\Certify  $certify
      * @return mixed
      */
     public function view(User $user = null, Certify $certify = null)
@@ -37,8 +37,8 @@ class CertifyPolicy
     /**
      * Determine whether the user can delete the model.
      *
-     * @param  \App\User  $user
-     * @param  \App\Certify $certify
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\Certify $certify
      * @return mixed
      */
     public function delete(User $user, Certify $certify)
@@ -49,8 +49,8 @@ class CertifyPolicy
     /**
      * Determine whether the user can permanently delete the model.
      *
-     * @param  \App\User  $user
-     * @param  \App\Certify $certify
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\Certify $certify
      * @return mixed
      */
     public function forceDelete(User $user, Certify $certify)

@@ -1,10 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use App\Item;
-use App\ActivityProgress;
-use App\Image;
+use App\Filter;
 use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
@@ -27,7 +25,7 @@ class Question extends Model
      */
     public function activity()
     {
-        return $this->belongsTo('App\Activity', 'activity', 'id')->first();
+        return $this->belongsTo('App\Models\Activity', 'activity', 'id')->first();
     }
 
     /**
@@ -37,7 +35,7 @@ class Question extends Model
      */
     public function items()
     {
-        return $this->hasMany('App\Item', 'question', 'id')->orderBy('order', 'asc');
+        return $this->hasMany('App\Models\Item', 'question', 'id')->orderBy('order', 'asc');
     }
 
     /**
@@ -47,7 +45,7 @@ class Question extends Model
      */
     public function images()
     {
-        return $this->hasMany('App\Image', 'model_id', 'id')->where(['model' => 'Question']);
+        return $this->hasMany('App\Models\Image', 'model_id', 'id')->where(['model' => 'Question']);
     }
 
     /**

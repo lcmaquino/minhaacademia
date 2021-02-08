@@ -1,15 +1,14 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use App\Role;
+use Hash;
 use App\CPFFormatter;
 use Lcmaquino\GoogleOAuth2\GoogleUser;
 use MyYouTubeChannel;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Hash;
 
 class User extends Authenticatable
 {
@@ -95,7 +94,7 @@ class User extends Authenticatable
      * @return Model
      */
     public function role(){
-        return $this->belongsTo('App\Role', 'role', 'id')->first();
+        return $this->belongsTo('App\Models\Role', 'role', 'id')->first();
     }
 
     /**
@@ -104,7 +103,7 @@ class User extends Authenticatable
      * @return Model
      */
     public function courses(){
-        return $this->hasMany('App\Course', 'teacher', 'id');
+        return $this->hasMany('App\Models\Course', 'teacher', 'id');
     }
 
     /**

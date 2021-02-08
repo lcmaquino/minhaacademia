@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Image;
-use App\User;
+use App\Models\Image;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ImagePolicy
@@ -13,7 +13,7 @@ class ImagePolicy
     /**
      * Determine whether the user can view any models.
      *
-     * @param  \App\User  $user
+     * @param  \App\Models\User  $user
      * @return mixed
      */
     public function viewAny(User $user = null)
@@ -24,7 +24,7 @@ class ImagePolicy
     /**
      * Determine whether the user can create models.
      *
-     * @param  \App\User  $user
+     * @param  \App\Models\User  $user
      * @return mixed
      */
     public function create(User $user)
@@ -35,8 +35,8 @@ class ImagePolicy
     /**
      * Determine whether the user can delete the model.
      *
-     * @param  \App\User  $user
-     * @param  \App\Image  $image
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\Image  $image
      * @return mixed
      */
     public function delete(User $user, Image $image)

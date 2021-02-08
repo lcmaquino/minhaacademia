@@ -1,12 +1,7 @@
 <?php
 
-namespace App;
-use App\Course;
-use App\Module;
-use App\Lesson;
-use App\Activity;
-use App\LessonProgress;
-use App\ActivityProgress;
+namespace App\Models;
+
 use App\CPFFormatter;
 
 use Illuminate\Database\Eloquent\Model;

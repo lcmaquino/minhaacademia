@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Question;
-use App\Activity;
-use App\Item;
-use App\Image;
+use App\Models\Image;
+use App\Models\Activity;
+use App\Models\Question;
+use App\Models\Item;
 use App\Filter;
 use App\ChangeOrder;
 use App\Rules\ModelExists;
@@ -128,7 +128,7 @@ class QuestionController extends Controller
         $rules = [
             'content' => ['required', 'string', 'max:5000'],
             'answer' => ['required', 'integer', 'min:0', 'max:26'],
-            'activity' => [new ModelExists('App\\Activity', $message)],
+            'activity' => [new ModelExists('App\\Models\\Activity', $message)],
             'action' => ['required', 'in:Salvar,Pré-visualizar'],
         ];
 

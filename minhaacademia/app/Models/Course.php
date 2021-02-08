@@ -1,9 +1,7 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use App\User;
-use App\Certify;
 use App\Filter;
 use Illuminate\Database\Eloquent\Model;
 
@@ -34,7 +32,7 @@ class Course extends Model
      */
     public function modules()
     {
-        return $this->hasMany('App\Module', 'course', 'id')->orderBy('order', 'asc');
+        return $this->hasMany('App\Models\Module', 'course', 'id')->orderBy('order', 'asc');
     }
 
     /**
@@ -44,7 +42,7 @@ class Course extends Model
      */
     public function images()
     {
-        return $this->hasMany('App\Image', 'model_id', 'id')->where(['model' => 'Course']);
+        return $this->hasMany('App\Models\Image', 'model_id', 'id')->where(['model' => 'Course']);
     }
     
     /**

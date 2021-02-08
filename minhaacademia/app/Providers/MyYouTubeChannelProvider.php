@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Setting;
+use App\Models\Setting;
 use Lcmaquino\YouTubeChannel\YouTubeChannelManager;
 use Illuminate\Support\ServiceProvider;
 

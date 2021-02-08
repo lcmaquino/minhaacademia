@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Setting;
+use App\Models\Setting;
 use App\MinhaAcademia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -90,6 +90,13 @@ class SettingController extends Controller
      */
     public function validateSettings(Request $request){
         $googleRedirectUri = URL::to('/login') . '/google/callback';
+        if(strpos($googleRedirectUri, 'http') !== false) {
+            $googleHttpRedirectUri = $googleRedirectUri;
+            $googleHttpsRedirectUri = str_replace('http', 'https', $googleRedirectUri);
+        }else{
+            $googleHttpRedirectUri = str_replace('https', 'http', $googleRedirectUri);
+            $googleHttpsRedirectUri = $googleRedirectUri;
+        }
         $rules = [
             'appName' => ['required', 'string', 'max:512'],
             'appUrl' => ['required', 'url', 'max:512'],
@@ -98,7 +105,7 @@ class SettingController extends Controller
             'defaultLogin' => ['required', 'in:form,oauth2'],
             'googleClientId' => ['nullable', 'string', 'max:512'],
             'googleClientSecret' => ['nullable', 'string', 'max:512'],
-            'googleRedirectUri' => ['nullable', 'url', 'in:' . $googleRedirectUri],
+            'googleRedirectUri' => ['nullable', 'url', 'in:' . $googleHttpRedirectUri . ',' . $googleHttpsRedirectUri],
             'donationUrl' => ['nullable', 'url', 'max:512'],
             'certifySignatureName' => ['required', 'string', 'max:512'],
             'certifyState' => ['required', 'string', 'max:512'],

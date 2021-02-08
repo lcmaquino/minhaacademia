@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Module;
-use App\Course;
-use App\Lesson;
+use App\Models\Course;
+use App\Models\Module;
+use App\Models\Lesson;
 use App\ChangeOrder;
 use App\Rules\ModelExists;
 use Illuminate\Support\MessageBag;
@@ -114,7 +114,7 @@ class ModuleController extends Controller
 
         $rules = [
             'title' => ['required', 'string', 'max:255'],
-            'course' => ['required', new ModelExists('App\\Course', $message)],
+            'course' => ['required', new ModelExists('App\\Models\\Course', $message)],
         ];
 
         $error_messages = [

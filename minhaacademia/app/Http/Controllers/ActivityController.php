@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Activity;
-use App\Module;
-use App\Question;
-use App\Item;
-use App\Setting;
+use App\Models\Setting;
+use App\Models\Module;
+use App\Models\Activity;
+use App\Models\Question;
+use App\Models\Item;
 use App\Filter;
 use App\ChangeOrder;
 use App\Rules\ModelExists;
@@ -149,7 +149,7 @@ class ActivityController extends Controller
         $rules = [
             'title' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string', 'max:5000'],
-            'module' => [new ModelExists('App\\Module', $message)],
+            'module' => [new ModelExists('App\\Models\\Module', $message)],
             'action' => ['required', 'in:Salvar,Pré-visualizar'],
         ];
 

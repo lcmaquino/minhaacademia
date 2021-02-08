@@ -1,7 +1,8 @@
 <?php
+namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Item;
+use App\Models\Item;
 
 class ItemTableSeeder extends Seeder
 {

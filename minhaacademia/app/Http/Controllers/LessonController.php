@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Lesson;
-use App\Course;
-use App\Module;
+use App\Models\Course;
+use App\Models\Module;
+use App\Models\Lesson;
 use App\Filter;
 use App\ChangeOrder;
 use App\Rules\ModelExists;
@@ -138,7 +138,11 @@ class LessonController extends Controller
                     $lesson->order = $module->lessons()->count();
                     $lesson->save();
                 }else{
-                    $errors->add('importVideo', 'Não foi possível importar o vídeo.');
+                    $msg = 'Não foi possível importar o vídeo.';
+                    $msg = empty($user->access_token) ? 
+                        $msg . ' Você precisa efetuar o login com sua conta do YouTube.' : 
+                        $msg . ' Tente novamente mais tarde.';
+                    $errors->add('importVideo', $msg);
                 }
             }
 
@@ -165,7 +169,11 @@ class LessonController extends Controller
                     }
     
                     if (empty($playlist) || empty($playlist->getItems())) {
-                        $errors->add('importPlaylist', 'Não foi possível importar a lista de reprodução.');
+                        $msg = 'Não foi possível importar a lista de reprodução.';
+                        $msg = empty($user->access_token) ? 
+                            $msg . ' Você precisa efetuar o login com sua conta do YouTube.' : 
+                            $msg . ' Tente novamente mais tarde.';
+                        $errors->add('importPlaylist', $msg);
                     }
                 }else{
                     $errors->add('importPlaylist', 'O campo Fim (' . ($end + 1) . ') deve ser maior do que o campo Início (' . ($start + 1) . ')');
@@ -247,7 +255,7 @@ class LessonController extends Controller
             'title' => ['required', 'string', 'max:255'],
             'video' => ['nullable', 'size:11', 'regex:/[a-z0-9_-]{11}/i'],
             'description' => ['nullable', 'string', 'max:5000'],
-            'module' => [new ModelExists('App\\Module', $message)],
+            'module' => [new ModelExists('App\\Models\\Module', $message)],
             'action' => ['required', 'in:Salvar,Pré-visualizar'],
         ];
 

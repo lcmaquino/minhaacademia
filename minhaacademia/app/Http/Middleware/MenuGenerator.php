@@ -3,10 +3,10 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use App\Role;
+use App\Models\Role;
+use App\Models\Certify;
+use App\Models\Setting;
 use App\Menu;
-use App\Certify;
-use App\Setting;
 use App\Filter;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,7 +25,7 @@ class MenuGenerator {
 
         $controllerClass = class_basename(get_class($request->route()->getController()));
         $method = 'get' . $controllerClass . 'Menu';
-        
+
         if (method_exists(new MenuGenerator(), $method)) {
             $request = call_user_func(MenuGenerator::class . '::'. $method, $request, 'ul', 'sidebarmenu', ['sidebarmenu']);
         }

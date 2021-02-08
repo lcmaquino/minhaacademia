@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Image;
-use App\User;
-use App\Course;
-use App\Lesson;
-use App\Activity;
-use App\Question;
-use App\Item;
+use App\Models\Image;
+use App\Models\User;
+use App\Models\Course;
+use App\Models\Lesson;
+use App\Models\Activity;
+use App\Models\Question;
+use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 

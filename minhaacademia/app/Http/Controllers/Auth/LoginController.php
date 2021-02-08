@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use App\Role;
-use App\Setting;
-use App\SettingManager;
+use App\Models\User;
+use App\Models\Role;
+use App\Models\Setting;
+use App\Models\SettingManager;
 use Lcmaquino\YouTubeChannel\YouTubeChannelManager;
 use MyYouTubeChannel;
 use Illuminate\Support\Facades\Auth;
