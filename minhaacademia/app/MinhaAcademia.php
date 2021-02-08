@@ -15,7 +15,7 @@ class MinhaAcademia
      *
      * @var string
      */
-    protected const VERSION = '1.2';
+    protected const VERSION = '1.2.2';
 
     /**
      * Number of steps for updating process.
