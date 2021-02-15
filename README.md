@@ -10,7 +10,7 @@ YouTube especificado nas configurações da aplicação.
 ### Pré-requisitos
 
 Pré-requisitos para instalar a Minha Academia em um computador local:
-- [XAMPP 7.3.x](https://www.apachefriends.org/pt_br/index.html);
+- [XAMPP 7.3.x ou superior (mas inferior à 8.x)](https://www.apachefriends.org/pt_br/index.html);
 - [Composer](https://getcomposer.org/);
 
 **Observação**
@@ -104,13 +104,13 @@ no ícone de engrenagem (no canto superior direito) para acessar o menu
 Antes de começar a modificar sua aplicação eu recomendo alterar as permissões
 dos diretórios e arquivos.
 ```
-$ cd /opt/lampp
-$ find minhaacademia -type d -exec chmod 755 {} \;
-$ chmod -R g+w minhaacademia/storage
-$ chmod -R g+w minhaacademia/bootstrap/cache
-$ find minhaacademia -type f -exec chmod 644 {} \;
-$ find htdocs/site -type d -exec chmod 775 {} \;
-$ find htdocs/site -type f -exec chmod 644 {} \;
+cd /opt/lampp
+find minhaacademia -type d -exec chmod 755 {} \;
+chmod -R g+w minhaacademia/storage
+chmod -R g+w minhaacademia/bootstrap/cache
+find minhaacademia -type f -exec chmod 644 {} \;
+find htdocs/site -type d -exec chmod 775 {} \;
+find htdocs/site -type f -exec chmod 644 {} \;
 ```
 
 ### Instalação no Windows
