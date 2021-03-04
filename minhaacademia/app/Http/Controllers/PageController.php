@@ -189,4 +189,14 @@ class PageController extends Controller
 
         return view('site.about', $info);
     }
+
+    /**
+     * Display the donation page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function donation() {
+        $channelTitle = Setting::getSetting('youtube_channel_title');
+        return view('site.donation', ['channelTitle' => $channelTitle]);
+    }
 }

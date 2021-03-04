@@ -13,9 +13,8 @@ use App\Models\Setting;
 |
 */
 
-Route::get('/ajude', 'DonationController@index')->name('donation');
-
 Route::middleware('menugenerator')->group(function () {
+    Route::get('/ajude', 'PageController@donation')->name('donation');
     Route::get('/', 'CourseController@index')->name('home');
     Route::get('/contato', 'PageController@contact')->name('contact');
     Route::post('/contato/enviar', 'PageController@contactSend')->name('contactSend');
