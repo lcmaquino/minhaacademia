@@ -105,7 +105,7 @@
             left: 50%;
             width: 757px;
             height: 535px;
-            transform: translate(-50%, -60%);
+            transform: translate(-50%, -50%);
         }
 
         .text-left {

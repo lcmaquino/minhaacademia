@@ -68,9 +68,14 @@ class CertifyController extends Controller
         }
 
         $param['certify'] = $certify;
-
-        DomPDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif', 'isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+        DomPDF::setOption([
+              'dpi' => 150,
+              'defaultFont' => 'sans-serif',
+              'isHtml5ParserEnabled' => true,
+              'isRemoteEnabled' => true
+              ]);
         $pdf = DomPDF::loadView('site.showCertifyPDF', $param)->setPaper('a4', 'landscape');
+
         return $pdf->download(Str::slug($certify->name) ."-". Str::slug($certify->title) . '.pdf');
     }
 
